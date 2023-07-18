@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --toogle-icon: url(./assets/moon-stars.svg);
+}
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --toogle-icon: url(./assets/sun.svg);
+}
+Body {
+  background: var(--bg-url) no-repeat top center/cover;
+}
+Body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+#Container {
+  width: 360px;
+  margin: 56px auto 32px; /*Como um relógio: top right bottom left // 3 valores: top sides bottom*/
+  padding: 0 24px;
+}
+#Profile {
+  text-align: center;
+  padding: 24px;
+}
+#Profile img {
+  width: 112px;
+  /*Posso usar o seletor pai (#Profile{text-align: center;}) para configurar posição de elementos inline. Ou preciso transformar inline em block:
+  display: block;
+  margin: auto; 
+  */
+}
+#Profile p {
+  font-weight: 500px;
+  line-height: 24px;
+  padding-top: 8px;
+}
+#Switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+#Switch button {
+  width: 32px;
+  height: 32px;
+  border: 0px;
+  border-radius: 50%;
+  background: white var(--toogle-icon) no-repeat center;
+  display: inline-flex;
+  padding: 8px;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.light #Switch button {
+  right: 0;
+  left: initial;
+}
+#Switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+#Links ul {
+  padding: 24px 0 24px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#Links ul li {
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+#Links ul li:hover {
+  border: 2px solid var(--text-color);
+  background: var(--surface-color-hover);
+}
+#Links ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+}
+#Social-Icons {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  font-size: 24px;
+}
+#Social-Icons a {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+#Social-Icons a:hover {
+  background: var(--highlight-color);
+}
+footer {
+  display: flex;
+  padding: 24px 0 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: stretch;
+  font-size: 14px;
+}
+footer a {
+  text-decoration: none;
+}
