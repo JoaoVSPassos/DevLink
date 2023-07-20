@@ -14,7 +14,7 @@
 }
 .light {
   --text-color: black;
-  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -70,10 +70,13 @@ Body * {
   top: 50%;
   transform: translateY(-50%);
   left: 0;
+  animation: slide-out 0.4s;
 }
 .light #Switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+#Switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 #Switch span {
   display: block;
@@ -148,7 +151,23 @@ footer a {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
   }
-  :light {
+  .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
